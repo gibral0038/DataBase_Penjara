@@ -2,11 +2,10 @@
 
 Biar lebih gampang ngerjainnya.   
 
-## 14 - 11, 12:42
+## 14 November
 
 ### Fixed
-- Perbaiki isu file tidak dapat ter-operasi
-- Perbaiki error handler di fungsi cari_tahanan
+- [1.1] Perbaiki isu file tidak dapat ter-operasi
+- [1.1] Perbaiki error handler di fungsi cari_tahanan
 
-## 14 - 11, 08:35
-- Buat changelog
+- [1.0] Buat changelog
