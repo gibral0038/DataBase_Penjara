@@ -31,6 +31,7 @@ void menu();
 void input(Tahanan* list, int& jmlhTahanan);
 void hapus(Tahanan* list, int& jmlhTahanan);
 void cari_tahanan(Tahanan* list, int& jmlhTahanan);
+void print_tahanan(Tahanan narapidana);
 
 int main(){
     int jmlhTahanan = 0;
@@ -131,6 +132,15 @@ void hapus(Tahanan* list, int& jmlhTahanan){
     else cout << "Data tahanan tersebut tidak ditemukan!!\n";
 }
 
+void print_tahanan(Tahanan tahanan){
+    cout << tahanan.noTahanan << endl <<
+        tahanan.nama << endl <<
+        tahanan.tmptLahir << endl <<
+        tahanan.kejahatan << endl <<
+        tahanan.masuk.tanggal << "-" << tahanan.masuk.bulan << "-" << tahanan.masuk.tahun << endl <<
+        tahanan.keluar.tanggal << "-" << tahanan.keluar.bulan << "-" << tahanan.keluar.tahun << endl;
+}
+
 void cari_tahanan(Tahanan* list, int& jmlhTahanan){
     string input_id;
     cout << "Masukkan ID tahanan : ";
@@ -141,13 +151,8 @@ void cari_tahanan(Tahanan* list, int& jmlhTahanan){
     for (int i = 0; i < jmlhTahanan; i++) {
         
         if (list[i].noTahanan == input_id) {
-            cout << list[i].noTahanan << endl <<
-                    list[i].nama << endl <<
-                    list[i].tmptLahir << endl <<
-                    list[i].kejahatan << endl <<
-                    list[i].masuk.tanggal << "-" << list[i].masuk.bulan << "-" << list[i].masuk.tahun << endl <<
-                    list[i].keluar.tanggal << "-" << list[i].keluar.bulan << "-" << list[i].keluar.tahun << endl;
-                    found = true;
+            print_tahanan(list[i]);
+            found = true;
         }
     }
     if (!found) cout << "Tahanan tidak ditemukan!\n";
