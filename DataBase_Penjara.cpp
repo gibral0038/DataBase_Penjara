@@ -37,7 +37,7 @@ int main(){
     fstream file;
     Tahanan* list = new Tahanan[101];
     Tahanan* ptr = &list[0];
-    file.open(namaFile);
+    file.open(namaFile, ios::in);
     file >> jmlhTahanan;
     Tahanan* max = ptr + jmlhTahanan;
     for (ptr; ptr < max; ptr++){
@@ -67,7 +67,7 @@ int main(){
                 hapus(list, jmlhTahanan);
                 break;
             case 6 :
-                file.open(namaFile, ios::trunc);
+                file.open(namaFile, ios::out | ios::trunc);
                 file << jmlhTahanan << endl;
                 for (int i = 0; i < jmlhTahanan; i++){
                     file << list[i].nama <<
@@ -149,7 +149,6 @@ void cari_tahanan(Tahanan* list, int& jmlhTahanan){
                     list[i].keluar.tanggal << "-" << list[i].keluar.bulan << "-" << list[i].keluar.tahun << endl;
                     found = true;
         }
-        if (!found) cout << "Tahanan tidak ditemukan!\n"; 
-
     }
+    if (!found) cout << "Tahanan tidak ditemukan!\n";
 }
