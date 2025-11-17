@@ -18,6 +18,8 @@ struct Date{
     int tahun;
 };
 
+Date lama_ditahan(Date A, Date B);
+
 struct Tahanan{
     string nama;
     string noTahanan;
@@ -25,6 +27,7 @@ struct Tahanan{
     string kejahatan;
     Date masuk;
     Date keluar;
+    Date lama = lama_ditahan(masuk, keluar);
 };
 
 void menu();
@@ -90,7 +93,7 @@ int main(){
 void menu(){
     cout << "========================================" <<
     endl << "| 1. Tambahkan Tahanan                 |" <<
-    endl << "| 2. Tampilkan sesuai urutan default   |" << 
+    endl << "| 2. Tampilkan semua tahanan           |" << 
     endl << "| 3. Tampilkan sesuai urutan masuk     |" << 
     endl << "| 4. Cari Tahanan                      |" <<
     endl << "| 5. Delete data tahanan               |" <<
@@ -101,10 +104,10 @@ void menu(){
 void input(Tahanan* list, int& jmlhTahanan){
     jmlhTahanan++;
     cin.ignore();
-    cout << "Nama Tahanan\t: "; getline(cin, list[jmlhTahanan - 1].nama);
-    cout << "No Tahanan\t: "; cin >> list[jmlhTahanan - 1].noTahanan;
-    cout << "Tempat Lahir\t: "; cin >> list[jmlhTahanan - 1].tmptLahir;
-    cout << "Kejahatan\t: "; cin >> list[jmlhTahanan - 1].kejahatan;
+    cout << "Nama Tahanan\t: ";  getline(cin, list[jmlhTahanan - 1].nama);
+    cout << "No Tahanan\t: ";    cin >> list[jmlhTahanan - 1].noTahanan;
+    cout << "Tempat Lahir\t: ";  cin >> list[jmlhTahanan - 1].tmptLahir;
+    cout << "Kejahatan\t: ";     cin >> list[jmlhTahanan - 1].kejahatan;
     cout << "Tanggal Masuk\t: "; cin >> list[jmlhTahanan - 1].masuk.tanggal 
          >> list[jmlhTahanan - 1].masuk.bulan >> list[jmlhTahanan - 1].masuk.tahun;
     cout << "Tanggal Keluar\t: "; cin >> list[jmlhTahanan - 1].keluar.tanggal 
@@ -156,4 +159,21 @@ void cari_tahanan(Tahanan* list, int& jmlhTahanan){
         }
     }
     if (!found) cout << "Tahanan tidak ditemukan!\n";
+}
+
+//hitung lama tahanan dipenjara
+Date lama_ditahan(Date A, Date B){
+    int daysA = 0, daysB = 0; 
+    daysA += A.tahun * 365; daysB += B.tahun * 365;
+    daysA += A.bulan * 30; daysB += B.bulan * 30;
+    daysA += A.tanggal; daysB += B.tanggal;
+
+    int days = daysB - daysA;
+    Date lama;
+
+    lama.tahun = days / 365; days %= 365;
+    lama.bulan = days / 30; days %= 30;
+    lama.tanggal = days;
+
+    return lama;
 }

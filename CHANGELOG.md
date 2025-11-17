@@ -2,6 +2,12 @@
 
 Biar lebih gampang ngerjainnya.   
 
+## 17 November
+
+### Added
+- [1.3] Tambahkan fungsi untuk menghitung lama tahanan ditahan
+- [1.3] Tambahkan lama ditahan dalam struct Tahanan
+
 ## 14 November
 
 ### Added
