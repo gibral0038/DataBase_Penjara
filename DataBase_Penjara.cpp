@@ -93,7 +93,7 @@ int main(){
 void menu(){
     cout << "========================================" <<
     endl << "| 1. Tambahkan Tahanan                 |" <<
-    endl << "| 2. Tampilkan semua tahanan           |" << 
+    endl << "| 2. Tampilkan semua tahanan      x     |" << 
     endl << "| 3. Tampilkan sesuai urutan masuk     |" << 
     endl << "| 4. Cari Tahanan                      |" <<
     endl << "| 5. Delete data tahanan               |" <<
